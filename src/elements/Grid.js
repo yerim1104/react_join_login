@@ -3,6 +3,9 @@ import styled from "styled-components";
 
 const Grid = (props) => {
     const {is_flex, width, padding, margin, bg, children} = props;
+    //프롭스 받아야함을 선언하는듯,,
+
+    //원래같으면 gridbox 스타일드 컴포넌트에 바로 {...props}로 끝냈겠지만,
     //children은 자식객체로 스타일을 담당하는 애가 아니니까 밑에 스타일즈 객체 만들어서 한번더 선언해준당.
     
     const styles = {
@@ -15,7 +18,7 @@ const Grid = (props) => {
 
     return(
         <React.Fragment>
-            <GridBox {...styles}>
+            <GridBox {...styles}> 
                 {children} 
             </GridBox>
 
@@ -26,7 +29,7 @@ const Grid = (props) => {
 
 Grid.defaultProps = {
     children: null,
-    is_flex: false,
+    is_flex: false, //플렉스인지 아닌지
     width: "100%",
     padding: false,
     margin: false, //패딩에 값이 있으면 패딩값을 넣어주고, 마진에 값이 있으면 마진 값을 넣어주는 방식
@@ -35,15 +38,13 @@ Grid.defaultProps = {
 }
 
 const GridBox = styled.div`
-    width: ${(props)=>props.width};
+    width: ${(props)=>(props.width)};
     height: 100%;
     box-sizing: border-box; // 패딩값이랑 선굵기 값도 넓이에 포함할랭? border-box: 선굵기까지 포함할랭!
     ${(props) => (props.padding? `padding: ${props.padding};`: "")} //패딩 있으면 받고 없으면 안받음 삼항연산자.
     ${(props) => (props.margin? `margin: ${props.margin};`: "")}
     ${(props) => (props.bg? `background-color: ${props.bg};`: "")}
-    ${(props) => (props.is_flex
-    ? `display:flex; align-items: center; jsutify-content: space-between;`
-    : "")}
+    ${(props) => (props.is_flex? `display: flex; align-items: center; jsutify-content: space-between;`: "")}
 `;
 
 export default Grid;

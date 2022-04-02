@@ -1,16 +1,34 @@
 import React from "react";
-import Grid from "../elements/Grid";
+import {Grid, Image, Text} from "../elements";
 
 const Post = (props) => {
 
 
     return(
         <React.Fragment>
-            <Grid padding="16px">
-            <div>user profile / user name / insert_dt / is_me (btn)</div>
+            <Grid >
+                <Grid is_flex>
+                    <Image shape="circle" src = {props.src}/>
+                    <Text bold>{props.user_info.user_name}</Text>
+                    <Text>{props.insert_dt}</Text>
+                </Grid>
+                    
+                <Grid padding="16px">
+                    <Text>{props.contents}</Text>
+                </Grid>
+                <Grid padding="16px">
+                  <Image shape="rectangle" src = {props.src}/>
+                </Grid>
+                <Grid>
+                    <Text bold>댓글 {props.comment_cnt}개</Text>    
+                </Grid>
+              
+            {/*그리드 별로 순서대로 들어가야하는 것들
+             <div>user profile / user name / insert_dt / is_me (btn)</div>
             <div>contents</div>
             <div>image</div>
-            <div>comment cnt</div>
+            <div>comment cnt</div> */}
+
             </Grid>
         </React.Fragment>
     )
