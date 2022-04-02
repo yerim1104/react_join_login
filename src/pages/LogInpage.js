@@ -1,25 +1,43 @@
 import React from "react";
-import Header from "../components/Header";
-import { Text,Input,Buttons } from "../elements";
+import { Text, Input, Grid, Button } from "../elements";
 
-const LogInpage = (props) =>{
-    
-    return(
-        <React.Fragment>
-            <Header margin-bottom="75px"/>
+const LogInpage = (props) => {
+  return (
+    <React.Fragment>
+      <Grid padding="16px">
+        <Text size="32px" bold>
+          로그인
+        </Text>
 
-            <Text bold size="30px">로그인</Text>
-            <Text margin-top="20px">아이디</Text>
-            <Input placeholder="아이디를 입력하세요"/>
-            <Text margin-top="20px">비밀번호</Text>
-            <Input placeholder="비밀번호를 입력하세요"/>
+        <Grid padding="16px 0px">
+          <Input
+            label="아이디"
+            placeholder="아이디를 입력해주세요."
+            _onChange={() => {
+              console.log("아이디 입력했어!");
+            }}
+          />
+        </Grid>
 
-            <Buttons background-color="black" color="white" width="90%"> 로그인하기</Buttons>
+        <Grid padding="16px 0px">
+          <Input
+            label="패스워드"
+            placeholder="패스워드 입력해주세요."
+            _onChange={() => {
+              console.log("패스워드 입력했어!");
+            }}
+          />
+        </Grid>
 
-
-
-        </React.Fragment>
-    )
+        <Button
+          text="로그인하기"
+          _onClick={() => {
+            console.log("로그인 했어!");
+          }}
+        ></Button>
+      </Grid>
+    </React.Fragment>
+  );
 };
 
 export default LogInpage;

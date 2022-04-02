@@ -1,14 +1,13 @@
 import React from "react";
 import Post from "../components/Post.js";
-import Header from "../components/Header.js";
+
 
 const PostList = (props) => {
   
     return (
 
     <React.Fragment>
-        <Header/>
-          <Post/>
+        <Post/>
     </React.Fragment>
     
     )
